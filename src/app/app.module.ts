@@ -8,6 +8,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 
+//Bootstrap
+// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // BsDropdownModule.forRoot()
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
