@@ -7,6 +7,7 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 //Bootstrap
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -22,6 +23,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
+    FormsModule
     // BsDropdownModule.forRoot()
   ],
   providers: [AppService],

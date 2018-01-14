@@ -1,2 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+// @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.w100{
+    width: 100%;
+}
+
+.h100{
+    height: 100%;
+}
+
+.red{
+    color: red;
+}
+
+.bck-red{
+    background-color: rgb(225, 225, 238);
+}
+
+// .breadcrumb{
+//     width: 50% !important;
+//     margin-left: auto;
+//     margin-right: auto;    
+// }

@@ -21,4 +21,19 @@ export class AppService {
     this.url = this.globalPath + "api/getallvehicles";
     return this.http.get(this.url);
   }
+
+  getAllMakes()
+  {
+    this.url = this.globalPath + "api/getallvehiclemakes";
+
+    return this.http.get(this.url);
+  }
+
+  getModelsForMake(idMake: number)
+  {
+    let makeId = idMake.toString();
+    this.url = this.globalPath + "api/getallmodelsformake/" + makeId;
+
+    return this.http.get(this.url);
+  }
 }

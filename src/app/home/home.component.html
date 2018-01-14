@@ -1,4 +1,20 @@
-<nav>
-  <a routerLink="/vehicles">Vehicles</a>
-  <a routerLink="/vehicles/1">Vehicle 1</a>  
-</nav>
+<body class="w100 h100 bck-red">
+  <div class="row">
+    <div class="container">
+      <nav>
+        <a routerLink="/vehicles">Vehicles</a>
+        <a [routerLink]="['/vehicles', 123]">Vehicle 1</a>
+      </nav>
+
+      <select (change)="setVehicleMake()" [(ngModel)]="selectedVehicleMake">
+        <option disabled value="-1">Select make:</option>
+        <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.idRowMakeVehicle>{{vehicle.makeVehicleName}}</option>
+      </select>
+
+      <select>
+        <option *ngFor="let vehicle of vehicleModels" [value]=vehicle.idRowModelVehicle>{{vehicle.modelName}}</option>
+      </select>
+
+    </div>
+  </div>
+</body>

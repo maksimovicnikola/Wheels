@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private appService: AppService
+  ) { }
+
+  private vehicleMakes: any;
+  private selectedVehicleMake: number = -1;
+  private vehicleModels: any;
 
   ngOnInit() {
+    this.appService.getAllMakes()
+    .subscribe(
+        response =>
+        {
+          this.vehicleMakes = response;
+        }
+      )
   }
 
+  setVehicleMake() {
+    let selectedMake = this.selectedVehicleMake;
+
+    this.appService.getModelsForMake(selectedMake)
+    .subscribe(
+      response =>
+      {
+        this.vehicleModels = response;
+      }
+    )
+  }
 }

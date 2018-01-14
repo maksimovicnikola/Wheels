@@ -1,9 +1,13 @@
-<button id="pera" (click)="getAllVehicles()">Send request</button>
-<ul>
-  <li *ngFor="let vehicle of vehicles">
-    Type: {{vehicle.typeVehicleName}} <br>
-    Brend: {{vehicle.makeVehicleName}} <br>
-    Marka: {{vehicle.modelName}}
-  </li>
-</ul>
-<button (click)="goBack()">Back</button>
+<div class="row">
+  <div class="container">
+    <ul>
+      <li *ngFor="let vehicle of vehicles">
+        Type: {{vehicle.typeVehicleName}}
+        <br> Brend: {{vehicle.makeVehicleName}}
+        <br> Marka: {{vehicle.modelName}}
+      </li>
+    </ul>
+    <button (click)="goBack()">Back</button>
+    <button (click)="getAllVehicles()">Send request</button>
+  </div>
+</div>
