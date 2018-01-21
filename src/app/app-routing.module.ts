@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent,
+    component: VehicleComponent,
     data: 
     {
       breadcrumbs: 'Home'

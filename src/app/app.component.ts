@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
-import { Vehicle } from '../models/vehicle';
 
 @Component({
   selector: 'app-root',

@@ -29,10 +29,9 @@ export class AppService {
     return this.http.get(this.url);
   }
 
-  getModelsForMake(idMake: number)
+  getModelsForMake(idMake: number, idType: number)
   {
-    let makeId = idMake.toString();
-    this.url = this.globalPath + "api/getallmodelsformake/" + makeId;
+    this.url = this.globalPath + "api/getallmodelsformake/" + idMake + "/" + idType;
 
     return this.http.get(this.url);
   }

@@ -1,0 +1,40 @@
+.bg-img { 
+    /* The image used */
+    background-image: url("../../assets/images/home/opel.png");
+
+    /* Full height */
+    height: 100%; 
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+    max-width: 750px;
+    min-height: 200px;
+}
+
+.empty-block{
+    width: 100%;
+    background-color: #E7EDFF;
+    // background: linear-gradient(to bottom, #5F9ECD 0%, #E7EDFF 100%);    
+    background: linear-gradient(to bottom, #153E4D 0%, #E7EDFF 100%);        
+}
+.filter-box{
+    position: relative;
+    // background-color: #fff;
+    // background-color: #B0B9BB;
+    background-color: #153E4D;    
+    margin: 0 15px 15px 15px;
+    margin-top: -5%;
+    padding: 30px;
+    box-shadow: 0 1px 6px rgba(57,73,76,.35);
+    border: 3px solid lightgray;
+    border-radius: 1px;
+}
+
+.lbl-white{
+    color: white !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+}

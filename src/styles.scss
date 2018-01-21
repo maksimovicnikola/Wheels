@@ -1,24 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
 // @import '~bootstrap/dist/css/bootstrap.min.css';
 
-.w100{
-    width: 100%;
+$primary-color:#153e4d;
+
+.primary-bck{
+    background-color: $primary-color;
 }
 
-.h100{
+.primary{
+    color: $primary-color;
+}
+
+.top-bar{
+    padding: 10px;
+}
+
+.top-bar a{
+    font-family: "Open Sans";
+    font-weight: normal;
+    font-style: normal;
+    color: #aaa;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: normal;
+}
+
+.breadcrumb{
+    margin-bottom: 0 !important;
+}
+
+html, body {
     height: 100%;
 }
 
-.red{
-    color: red;
+.dsp-inl{
+    display: inline;
 }
 
-.bck-red{
-    background-color: rgb(225, 225, 238);
+select{
+    width: 100%;
 }
 
-// .breadcrumb{
-//     width: 50% !important;
-//     margin-left: auto;
-//     margin-right: auto;    
-// }
+.height100{
+    height: 100%;
+}
+
+.height70{
+    height: 70%;
+}
+
+.m0{
+    margin: 0!important;
+}
+
+.p0{
+    padding: 0!important;
+}
+
+.mar-auto{
+    margin-left: auto!important;
+    margin-right: auto!important; 
+}
+
+.mr15{
+    margin-right: 15px !important;
+}
+
+.pr15{
+    padding-right: 15px !important;
+}
+
+.width60{
+    width: 60% !important;
+}
+
+.width25{
+    width: 25%!important;
+}
+
+.mlrauto{
+    margin-right: auto!important;
+    margin-left: auto!important;
+}

@@ -1,3 +1,5 @@
+import { HomepageService } from './services/homepage/homepage.service';
+import { AdvertisementsService } from './services/advertisements.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,7 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 
 //Bootstrap
-// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,9 @@ import { FormsModule } from '@angular/forms';
     HttpModule,
     AppRoutingModule,
     FormsModule
-    // BsDropdownModule.forRoot()
-  ],
-  providers: [AppService],
+    ],
+  exports:[],
+  providers: [AppService, AdvertisementsService, HomepageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

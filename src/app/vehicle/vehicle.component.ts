@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Vehicle } from '../../models/vehicle';
+// import { Vehicle } from '../../models/vehicle';
 
 @Component({
   selector: '',
@@ -17,7 +17,7 @@ export class VehicleComponent implements OnInit {
     private location: Location
   ) { }
 
-  private vehicles: Vehicle[] = [];
+  private vehicles: any;
   
   ngOnInit() {
     // on this way we can get ids or values from params in url
@@ -31,7 +31,7 @@ export class VehicleComponent implements OnInit {
   }
 
   getAllVehicles() {
-    this.appService.getAllVehicles().subscribe((response: Vehicle[]) => {
+    this.appService.getAllVehicles().subscribe((response: any) => {
       this.vehicles = response;
     })
   }
