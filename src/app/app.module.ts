@@ -7,11 +7,9 @@ import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-
-//Bootstrap
 
 @NgModule({
   declarations: [
@@ -25,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     HttpModule,
     AppRoutingModule,
     FormsModule
-    ],
+  ],
   exports:[],
   providers: [AppService, AdvertisementsService, HomepageService],
   bootstrap: [AppComponent]

@@ -35,4 +35,10 @@ export class AppService {
 
     return this.http.get(this.url);
   }
+
+  geImage(id: number){
+    this.url = this.globalPath + "api/getimage/" + id;
+
+    return this.http.get(this.url);
+  }
 }

@@ -7,6 +7,10 @@ import { Advertisement } from './../../models/advertisement';
 import { AdvertisementsService } from './../services/advertisements.service';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { AppService } from '../app.service';
+import { Headers, Http, RequestOptions } from '@angular/http';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -18,21 +22,27 @@ export class HomeComponent implements OnInit {
   constructor(
     private appService: AppService,
     private adsService: AdvertisementsService,
-    private homepageService: HomepageService
+    private homepageService: HomepageService,
+    private http: Http,
+    private sanitizer: DomSanitizer
   ) { }
 
   private vehicleTypes: TypeVehicle[];
   private vehicleMakes: MakeVehicle[];
-  private vehicleModels: any;  
+  private vehicleModels: any;
   private selectedVehicleMake: number = -1;
   private selectedVehicleType: number = -1;
   private advertisements: Advertisement[] = [];
+  private showImage: any;
 
   ngOnInit() {
     this.homepageService.getHomepageData().subscribe((result: HomepageData) => {
       this.vehicleMakes = result.Makes;
       this.advertisements = result.Advertisements;
       this.vehicleTypes = result.Types;
+
+      //resolving security problems of loading files from local - Sanitizer
+      this.advertisements.forEach(x => x.ImagePathSecured = this.getPhotoUrl(x.ImagePath))
     })
   }
 
@@ -42,9 +52,50 @@ export class HomeComponent implements OnInit {
 
     this.appService.getModelsForMake(selectedMake, selectedType)
       .subscribe(
-      response => {
-        this.vehicleModels = response;
-      }
+        response => {
+          this.vehicleModels = response;
+        }
       )
   }
+
+
+  //uploading multiple files to api
+  fileChange(event) {
+    let fileList: FileList = event.target.files;
+
+    if (fileList.length > 0) {
+      // let file: File = fileList[0];
+      let formData: FormData = new FormData();
+
+      for (let f = 0; f < fileList.length; f++ )
+      {
+        formData.append(fileList[f].name, fileList[f], fileList[f].name);        
+      }
+
+      let headers = new Headers();
+      let options = new RequestOptions({ headers: headers });
+      this.http.post("http://localhost:63605/api/uploadimage", formData, options)
+        .subscribe(
+          // data => { console.log(data), this.getImage(1); },
+          error => console.log(error)
+        ),
+        err => (console.log("There is some error!"))
+    }
+  }
+
+
+  getImage(id: number) {
+    this.appService.geImage(id)
+      .subscribe(
+        (response: Response) => {
+          this.showImage = "data:image/png;base64," + response;
+        }
+      )
+  }
+
+  getPhotoUrl(url: string)
+  {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
 }

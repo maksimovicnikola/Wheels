@@ -1,6 +1,9 @@
-<div class="row no-gutters primary-bck top-bar">
-  <nav class="mar-auto">
-    <a routerLink="/vehicles">Vehicles</a>
+<div class="row no-gutters primary-bck top-bar p0">
+  <nav class="navbar navbar-light bg-faded" style="padding:0px;float: none; margin: 0 auto;">
+    <a class="navbar-brand" style="padding-right:85em" href="#">
+      <img src="../../assets/images/home/wheels-logo.png" width="100px" height="80px" class="d-inline-block align-top" alt="">
+    </a>
+    <a routerLink="/vehicles" style="margin-right:1em">Vehicles</a>
     <a [routerLink]="['/vehicles', 123]">Vehicle 1</a>
   </nav>
 </div>
@@ -11,68 +14,71 @@
 </div>
 <div class="row p0 m0">
   <div class="container">
-    <!-- <div class="col-md-12 col-xs-12"> -->
-      <form>
-        <div class="filter-box">
-          <div class="form-row align-items-center">
-            <div class="col-md-2 col-xs-10 my-1">
-              <!-- <label class="mr-sm-2 width25 lbl-white" for="selectType">Type</label> -->
-              <select class="custom-select mr-sm-2" id="selectType" name="selectType" [(ngModel)]="selectedVehicleType">
-                <option disabled value="-1">Choose type:</option>
-                <option *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
-              </select>
-            </div>
-            <div class="col-md-2 col-xs-10 my-1">
-              <!-- <label class="mr-sm-2 width25 lbl-white" for="selectMake">Make</label> -->
-              <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="setVehicleMake()" [(ngModel)]="selectedVehicleMake">
-                <option disabled value="-1">Choose make:</option>
-                <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
-              </select>
-            </div>
-            <div class="col-md-2 col-xs-10 my-1">
-              <!-- <label class="mr-sm-2 width25 lbl-white" for="inlineFormCustomSelect">Model</label> -->
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel">
-                <option disabled value="-1">Choose model:</option>
-                <option *ngFor="let vehicle of vehicleModels" [value]=vehicle.IdRow>{{vehicle.ModelName}}</option>
-              </select>
-            </div>
-            <div class="col-auto my-1 mlrauto">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+    <form>
+      <div class="filter-box">
+        <div class="form-row align-items-center">
+          <div class="col-md-2 col-xs-10 my-1">
+            <select class="custom-select mr-sm-2" id="selectType" name="selectType" [(ngModel)]="selectedVehicleType">
+              <option disabled value="-1">Choose type:</option>
+              <option *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
+            </select>
+          </div>
+          <div class="col-md-2 col-xs-10 my-1">
+            <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="setVehicleMake()" [(ngModel)]="selectedVehicleMake">
+              <option disabled value="-1">Choose make:</option>
+              <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
+            </select>
+          </div>
+          <div class="col-md-2 col-xs-10 my-1">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel">
+              <option disabled value="-1">Choose model:</option>
+              <option *ngFor="let vehicle of vehicleModels" [value]=vehicle.IdRow>{{vehicle.ModelName}}</option>
+            </select>
+          </div>
+          <div class="col-auto my-1 mlrauto">
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
-      </form>
-    <!-- </div> -->
+      </div>
+    </form>
   </div>
 </div>
 <div class="row no-gutters">
   <div class="container">
     <div *ngFor="let item of advertisements" style="border:1px solid lightgray; margin-bottom: 15px;padding:20px">
-      <label>Date:</label> {{item.AdvertisementDate | date: 'dd/MM/yyyy'}}
-      <br>
-      <label>Description:</label> {{item.Description}}
-      <br>
-      <label>Firstname:</label> {{item.Firstname}}
-      <br>
-      <label>Lastname:</label> {{item.Lastname}}
-      <br>
-      <label>Price:</label> {{item.Price | currency: 'EUR'}}
-      <br>
-      <fieldset>
-        <legend>Car details:</legend>
-        <label>VehicleType:</label> {{item.VehicleType}}
+      <div class="col-md-8">
+        <label>Date:</label> {{item.AdvertisementDate | date: 'dd/MM/yyyy'}}
         <br>
-        <label>VehicleMake:</label> {{item.VehicleMake}}
+        <label>Description:</label> {{item.Description}}
         <br>
-        <label>VehicleModel:</label> {{item.VehicleModel}}
+        <label>Firstname:</label> {{item.Firstname}}
         <br>
-        <div *ngIf="item.Features != null && item.Features.length > 0">
-          <h4>Features:</h4>
-          <ul *ngFor="let feature of item.Features">
-            <li>{{feature}}</li>
-          </ul>
-        </div>
-      </fieldset>
+        <label>Lastname:</label> {{item.Lastname}}
+        <br>
+        <label>Price:</label> {{item.Price | currency: 'EUR'}}
+        <br>
+        <fieldset>
+          <legend>Car details:</legend>
+          <label>VehicleType:</label> {{item.VehicleType}}
+          <br>
+          <label>VehicleMake:</label> {{item.VehicleMake}}
+          <br>
+          <label>VehicleModel:</label> {{item.VehicleModel}}
+          <br>
+          <div *ngIf="item.Features != null && item.Features.length > 0">
+            <h4>Features:</h4>
+            <ul *ngFor="let feature of item.Features">
+              <li>{{feature}}</li>
+            </ul>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-4">
+        <img *ngIf="item.ImagePath != null && item.ImagePath != ''" [src]="item.ImagePathSecured" height="200px">
+      </div>
     </div>
   </div>
 </div>
+<!-- accept=".pdf,.doc,.docx,.png" for list of files that can be accepted -->
+<input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".jpeg,.png" multiple>
+<!-- <img *ngIf="showImage!=null && showImage!=undefined" [src]="showImage" style="height:500px"> -->

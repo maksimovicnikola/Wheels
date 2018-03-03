@@ -9,4 +9,6 @@ export class Advertisement {
     public FirstnameUser: string;
     public LastnameUser: string;
     public Features:string[];
+    public ImagePath: string;
+    public ImagePathSecured: any;
 }
