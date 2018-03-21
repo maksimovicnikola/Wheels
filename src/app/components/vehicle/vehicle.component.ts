@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-// import { Vehicle } from '../../models/vehicle';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: '',

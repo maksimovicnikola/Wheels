@@ -1,24 +1,26 @@
+import { MappingService } from './services/mapping/mapping.service';
 import { HomepageService } from './services/homepage/homepage.service';
-import { AdvertisementsService } from './services/advertisements.service';
+import { AdvertisementsService } from './services/advertisements/advertisements.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
-import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleComponent } from './components/vehicle/vehicle.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpModule, Http } from '@angular/http';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { ApiRoutes } from '../assets/constants/api-routes';
-import { AdvertisementDetailsComponent } from './advertisement-details/advertisement-details.component';
+import { AdvertisementDetailsComponent } from './components/advertisement-details/advertisement-details.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VehicleComponent,
     HomeComponent,
-    AdvertisementDetailsComponent
+    AdvertisementDetailsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,11 @@ import { AdvertisementDetailsComponent } from './advertisement-details/advertise
     FormsModule
   ],
   exports:[],
-  providers: [AppService, AdvertisementsService, HomepageService, ApiRoutes],
+  providers: [AppService, 
+    AdvertisementsService, 
+    HomepageService, 
+    MappingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

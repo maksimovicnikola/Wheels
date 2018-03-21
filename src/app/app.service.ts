@@ -1,44 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Constants } from '../assets/constants/constant';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MappingService } from './services/mapping/mapping.service';
 
 @Injectable()
 export class AppService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private mapping: MappingService
   ) { }
 
-  private globalPath = Constants.GLOBAL_SERVER_PATH;
-  private url: string = this.globalPath + "api/getallusers";
-
   sendRequestToServer() {
-    return this.http.get(this.url);
+    let url = this.mapping.get_all_users_api;
+
+    return this.http.get(url);
   }
 
   getAllVehicles()
   {
-    this.url = this.globalPath + "api/getallvehicles";
-    return this.http.get(this.url);
+    let url = this.mapping.get_all_vehicles_api;
+    
+    return this.http.get(url);
   }
 
   getAllMakes()
   {
-    this.url = this.globalPath + "api/getallvehiclemakes";
+    let url = this.mapping.get_all_makes_api;
 
-    return this.http.get(this.url);
+    return this.http.get(url);
   }
 
   getModelsForMake(idMake: number, idType: number)
   {
-    this.url = this.globalPath + "api/getallmodelsformake/" + idMake + "/" + idType;
+    let url = this.mapping.get_models_for_make
+              .replace('{idMake}', idMake.toString())
+              .replace('{idType}', idType.toString());
 
-    return this.http.get(this.url);
-  }
-
-  geImage(id: number){
-    this.url = this.globalPath + "api/getimage/" + id;
-
-    return this.http.get(this.url);
+    return this.http.get(url);
   }
 }

@@ -1,18 +1,17 @@
-import { TypeVehicle } from './../../models/type-vehicle';
-import { MakeVehicle } from './../../models/make-vehicle';
-import { HomepageData } from './../../models/homepage-data';
+import { TypeVehicle } from './../../../models/type-vehicle';
+import { MakeVehicle } from './../../../models/make-vehicle';
+import { HomepageData } from './../../../models/homepage-data';
 import { getTestBed } from '@angular/core/testing';
-import { HomepageService } from './../services/homepage/homepage.service';
-import { Advertisement } from './../../models/advertisement';
-import { AdvertisementsService } from './../services/advertisements.service';
+import { HomepageService } from './../../services/homepage/homepage.service';
+import { Advertisement } from './../../../models/advertisement';
 import { Component, OnInit, NgModule } from '@angular/core';
-import { AppService } from '../app.service';
+import { AppService } from '../../app.service';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ApiRoutes } from '../../assets/constants/api-routes';
-import { HomeAdvertisement } from '../../models/home-advertisement';
+import { AdvertisementsService } from '../../services/advertisements/advertisements.service';
+import { HomeAdvertisement } from '../../../models/home-advertisement';
 
 @Component({
   selector: 'app-home',

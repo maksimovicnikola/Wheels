@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VehicleComponent } from './vehicle/vehicle.component';
-import { HomeComponent } from './home/home.component';
+import { VehicleComponent } from './components/vehicle/vehicle.component';
+import { HomeComponent } from './components/home/home.component';
 import { McBreadcrumbsModule } from 'ngx-breadcrumbs';
-import { AdvertisementDetailsComponent } from './advertisement-details/advertisement-details.component';
+import { AdvertisementDetailsComponent } from './components/advertisement-details/advertisement-details.component';
 
 const routes: Routes = [
   {
