@@ -10,12 +10,15 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpModule, Http } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { ApiRoutes } from '../assets/constants/api-routes';
+import { AdvertisementDetailsComponent } from './advertisement-details/advertisement-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VehicleComponent,
-    HomeComponent
+    HomeComponent,
+    AdvertisementDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   exports:[],
-  providers: [AppService, AdvertisementsService, HomepageService],
+  providers: [AppService, AdvertisementsService, HomepageService, ApiRoutes],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

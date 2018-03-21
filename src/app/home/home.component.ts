@@ -11,6 +11,8 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ApiRoutes } from '../../assets/constants/api-routes';
+import { HomeAdvertisement } from '../../models/home-advertisement';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +34,8 @@ export class HomeComponent implements OnInit {
   private vehicleModels: any;
   private selectedVehicleMake: number = -1;
   private selectedVehicleType: number = -1;
-  private advertisements: Advertisement[] = [];
+  private selectedVehicleModel: number = -1;
+  private advertisements: HomeAdvertisement[] = [];
   private showImage: any;
 
   ngOnInit() {
@@ -40,9 +43,6 @@ export class HomeComponent implements OnInit {
       this.vehicleMakes = result.Makes;
       this.advertisements = result.Advertisements;
       this.vehicleTypes = result.Types;
-
-      //resolving security problems of loading files from local - Sanitizer
-      this.advertisements.forEach(x => x.ImagePathSecured = this.getPhotoUrl(x.ImagePath))
     })
   }
 
@@ -58,7 +58,6 @@ export class HomeComponent implements OnInit {
       )
   }
 
-
   //uploading multiple files to api
   fileChange(event) {
     let fileList: FileList = event.target.files;
@@ -67,9 +66,8 @@ export class HomeComponent implements OnInit {
       // let file: File = fileList[0];
       let formData: FormData = new FormData();
 
-      for (let f = 0; f < fileList.length; f++ )
-      {
-        formData.append(fileList[f].name, fileList[f], fileList[f].name);        
+      for (let f = 0; f < fileList.length; f++) {
+        formData.append(fileList[f].name, fileList[f], fileList[f].name);
       }
 
       let headers = new Headers();
@@ -83,19 +81,27 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  //getting image as byte array and showing it
+  // getImage(id: number) {
+  //   this.appService.geImage(id)
+  //     .subscribe(
+  //       (response: Response) => {
+  //         this.showImage = "data:image/png;base64," + response;
+  //       }
+  //     )
+  // }
 
-  getImage(id: number) {
-    this.appService.geImage(id)
-      .subscribe(
-        (response: Response) => {
-          this.showImage = "data:image/png;base64," + response;
-        }
-      )
-  }
+  filterAdvertisements() {
+    let advertisements: HomeAdvertisement[] = this.advertisements;
+    let filteredAdvertisements: Advertisement[] = [];
 
-  getPhotoUrl(url: string)
-  {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    let type = this.selectedVehicleType;
+    let make = this.selectedVehicleMake;
+    let model = this.selectedVehicleModel;
+
+    this.homepageService.filterAdvertisements(type, make, model).subscribe((response: HomeAdvertisement[]) => {
+      this.advertisements = response;
+    })
   }
 
 }

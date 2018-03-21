@@ -1,4 +1,4 @@
-export class Advertisement {
+export class HomeAdvertisement {
     public AdvertisementId: number;
     public Description: string;
     public AdvertisementDate: Date;
@@ -11,7 +11,9 @@ export class Advertisement {
     public VehicleModelId: number;
     public FirstnameUser: string;
     public LastnameUser: string;
-    public Features:string[];
     public ImagePath: string;
-    public ImagePathSecured: any;
+    public ImagesNumber: number;
+    public AdvertisementTitle: string;
+    public Transmission: string;
+    public Mileage: number;
 }
