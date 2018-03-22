@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 // @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/angular2-lightbox/lightbox.css';
 
 $primary-color:#153e4d;
 
@@ -61,6 +62,14 @@ select{
     padding: 10!important;
 }
 
+.pl15{
+    padding-left: 15px !important;
+}
+
+.pr15{
+    padding-right: 15px !important;
+}
+
 .mar-auto{
     margin-left: auto!important;
     margin-right: auto!important; 
@@ -103,10 +112,27 @@ select{
     margin-top: 20px!important;
 }
 
+.mb20{
+    margin-bottom: 20px!important;
+}
+
 .ta-l{
     text-align: left!important;
 }
 
 .ta-r{
     text-align: right!important;
+}
+
+.f-opa-85{
+    filter: opacity(85%)
+}
+
+.title{
+    padding-bottom: 8px;
+    overflow: hidden;
+    font-size: 28px;
+    color: #153e4d;
+    margin-bottom: 10px;
+    font-family: 'Montserrat';
 }

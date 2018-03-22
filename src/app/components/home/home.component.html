@@ -4,39 +4,60 @@
         <div class="empty-block height100"></div>
     </div>
 </div>
-<div class="row p0 m0">
-    <div class="container">
-        <form>
-            <div class="filter-box">
-                <div class="form-row align-items-center">
-                    <div class="col-md-2 col-xs-10 my-1">
-                        <select class="custom-select mr-sm-2" id="selectType" name="selectType" [(ngModel)]="selectedVehicleType">
-                            <option disabled value="-1">Choose type:</option>
-                            <option *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 col-xs-10 my-1">
-                        <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="setVehicleMake()" [(ngModel)]="selectedVehicleMake">
-                            <option disabled value="-1">Choose make:</option>
-                            <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 col-xs-10 my-1">
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel" name="selectModel" [(ngModel)]="selectedVehicleModel">
-                            <option disabled value="-1">Choose model:</option>
-                            <option *ngFor="let vehicle of vehicleModels" [ngValue]=vehicle.IdRow>{{vehicle.ModelName}}</option>
-                        </select>
-                    </div>
-                    <div class="col-auto my-1 mlrauto">
-                        <button type="button" class="btn btn-primary" (click)="filterAdvertisements()">
-                            <i class="fa fa-search"></i> Filter
-                        </button>
+<div class="container">
+    <div class="card text-center mt-minus5 box-shad">
+        <div class="card-header primary-bck f-opa-85">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled clr-white" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled clr-white" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="filter-box">
+                    <div class="form-row align-items-center">
+                        <div class="col-md-2 col-xs-10 my-1">
+                            <select class="custom-select mr-sm-2" id="selectType" name="selectType" [(ngModel)]="selectedVehicleType">
+                                <option disabled value="-1">Choose type:</option>
+                                <option *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-xs-10 my-1">
+                            <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="setVehicleMake()" [(ngModel)]="selectedVehicleMake">
+                                <option disabled value="-1">Choose make:</option>
+                                <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-xs-10 my-1">
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel" name="selectModel" [(ngModel)]="selectedVehicleModel">
+                                <option disabled value="-1">Choose model:</option>
+                                <option *ngFor="let vehicle of vehicleModels" [ngValue]=vehicle.IdRow>{{vehicle.ModelName}}</option>
+                            </select>
+                        </div>
+                        <div class="col-auto my-1 mlrauto">
+                            <button type="button" class="btn btn-primary" (click)="filterAdvertisements()">
+                                <i class="fa fa-search"></i> Filter
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+
+<!-- <div class="row p0 m0">
+    <div class="container">
+        
+    </div>
+</div> -->
 <div class="row no-gutters mt20">
     <div class="container mt20">
         <div class="row mt20">

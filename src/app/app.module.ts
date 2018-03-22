@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { AdvertisementDetailsComponent } from './components/advertisement-details/advertisement-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LightboxModule } from 'angular2-lightbox';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HeaderComponent } from './components/header/header.component';
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    LightboxModule
   ],
   exports:[],
   providers: [AppService, 

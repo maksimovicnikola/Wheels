@@ -1,1 +1,16 @@
 <header></header>
+<div class="container mt20">
+    <div class="row">
+        <div class="pl15">
+            <h2 class="title">{{advertisementTitle}}</h2>
+        </div>
+        <div *ngFor="let image of images; let i=index" class="mb20" [ngClass]="(i==0)?'col-md-12':'col-md-3'">
+            <div *ngIf="i == 0">
+                <img [src]="image.thumb" width="700px" (click)="openLightbox(i)" />
+            </div>
+            <div *ngIf="i != 0">
+                <img [src]="image.thumb" width="250px" (click)="openLightbox(i)" />
+            </div>
+        </div>
+    </div>
+</div>
