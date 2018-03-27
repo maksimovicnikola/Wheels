@@ -24,20 +24,20 @@
                 <div class="filter-box">
                     <div class="form-row align-items-center">
                         <div class="col-md-2 col-xs-10 my-1">
-                            <select class="custom-select mr-sm-2" id="selectType" name="selectType" [(ngModel)]="selectedVehicleType">
-                                <option disabled value="-1">Choose type:</option>
-                                <option *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
+                            <select class="custom-select mr-sm-2" id="selectType" name="selectType" (change)="selectedVehicleModel = '-1'; onChangeVehicleType()" [(ngModel)]="selectedVehicleType">
+                                <option style="max-width: 50px;" value="-1">All types</option>
+                                <option style="max-width: 50px;" *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-xs-10 my-1">
-                            <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="setVehicleMake()" [(ngModel)]="selectedVehicleMake">
-                                <option disabled value="-1">Choose make:</option>
+                            <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="selectedVehicleModel = '-1'; setVehicleMake()" [(ngModel)]="selectedVehicleMake">
+                                <option  value="-1">All makes</option>
                                 <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-xs-10 my-1">
                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel" name="selectModel" [(ngModel)]="selectedVehicleModel">
-                                <option disabled value="-1">Choose model:</option>
+                                <option  value="-1">All models</option>
                                 <option *ngFor="let vehicle of vehicleModels" [ngValue]=vehicle.IdRow>{{vehicle.ModelName}}</option>
                             </select>
                         </div>
@@ -61,13 +61,12 @@
 <div class="row no-gutters mt20">
     <div class="container mt20">
         <div class="row mt20">
-            <div *ngFor="let item of advertisements" class="col-4 p10 tx-c">
+            <div *ngFor="let item of advertisements" class="col-md-4 col-12 p10 tx-c">
                 <a [routerLink]="['/advertisement-details', item.AdvertisementId]">
                     <div *ngIf="item.ImagePath != null && item.ImagePath != ''">
                         <img [src]="item.ImagePath" height="135px" width="255px">
                         <div class="row">
                             <div class="col-md-12 advertisement-title">{{item.AdvertisementTitle}} [{{item.Price | currency: 'EUR'}}]</div>
-                            <!-- <div class="col-md-4 advertisement-title ta-r">{{item.Price}}</div> -->
                         </div>
                     </div>
                 </a>

@@ -53,7 +53,8 @@ const routes: Routes = [
           path: 'advertisement-details',
           component: AdvertisementDetailsComponent,
           data: {
-            breadcrumbs: 'Vehicles'
+            breadcrumbs: false,
+            // breadcrumbs: 'Vehicles'
           },
           children:
             [
@@ -61,7 +62,7 @@ const routes: Routes = [
                 component: AdvertisementDetailsComponent,
                 data: {
                     breadcrumbs: true,
-                    text: "Details"
+                    text: "Vehicle Details"
                   }
               }
             ]

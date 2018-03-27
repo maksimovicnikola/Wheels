@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   private vehicleTypes: TypeVehicle[];
   private vehicleMakes: MakeVehicle[];
-  private vehicleModels: any;
+  private vehicleModels: any = [];
   private selectedVehicleMake: number = -1;
   private selectedVehicleType: number = -1;
   private selectedVehicleModel: number = -1;
@@ -43,6 +43,17 @@ export class HomeComponent implements OnInit {
       this.advertisements = result.Advertisements;
       this.vehicleTypes = result.Types;
     })
+  }
+
+  onChangeVehicleType() {
+    if (this.vehicleModels.length > 0) {
+      this.vehicleModels = [];
+    }
+
+    if (this.selectedVehicleMake != -1) {
+      this.setVehicleMake();
+    }
+    this.setVehicleMake();
   }
 
   setVehicleMake() {

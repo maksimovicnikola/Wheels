@@ -21,11 +21,9 @@ export class AdvertisementDetailsComponent implements OnInit {
   }
 
   private subManager = new Subscription();
-  private advertisementDetails: Advertisement;
+  private advertisementDetails: Advertisement = new Advertisement();
 
   private images: Array<any> = [];
-
-  private advertisementTitle: string;
 
   ngOnInit() {
     //getting advertisement id from url, later to change to get via activated route, not by split
@@ -43,7 +41,7 @@ export class AdvertisementDetailsComponent implements OnInit {
 
         this.setLightBox(imagesPaths, description);
 
-        this.advertisementTitle = response.AdvertisementTitle;
+        response.VehicleTypeName
       }
       )
 

@@ -7,7 +7,7 @@ export class MappingService {
   constructor() { }
 
   public homepage_data_api: string = Constants.GLOBAL_SERVER_PATH + "/api/gethomepagedata";
-  public filter_advertisements_api: string = Constants.GLOBAL_SERVER_PATH + "api/filteradvertisements/{typeId}/{makeId}/{modelId}";
+  public filter_advertisements_api: string = Constants.GLOBAL_SERVER_PATH + "/api/filteradvertisements/{typeId}/{makeId}/{modelId}";
   public get_all_advertisements_api: string = Constants.GLOBAL_SERVER_PATH + "/api/getalladvertisements";
   public get_advertisement_by_id: string = Constants.GLOBAL_SERVER_PATH + "/api/getadvertisementbyid/{id}";
   public get_all_users_api: string = Constants.GLOBAL_SERVER_PATH + "/api/getallusers";

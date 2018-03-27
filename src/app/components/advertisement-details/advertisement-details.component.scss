@@ -1,21 +1,52 @@
-
-.cover-container {
-    height: 180px;
+.border-primary-color{
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 2em;
     width: 100%;
+}
+
+.vehicle-description{
+    width: 100%;
+    margin: .8em;
+}
+
+.border-vehicle-description{
+    border-bottom: 1px solid gray;
+    margin-top: .7em;
+    width: 100%;
+}
+
+.icon{
+    display: inline;
+}
+.vehicle-body{
+    display: inline;
+    color: gray;
+    font-size: .8em;
+}
+
+.vehicle-body-description{
+    display: inline;
+    padding-left: 20px;
+    color: #222;
     white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
-.cover-item {
-    position: relative;
-    display: inline-block;
-    margin: 8px 8px;
-    box-shadow: 2px 2px 4px #bbb;
-    border-top-right-radius: 4px;
-    width: 116px;
-    height: 158px;
-    vertical-align: bottom;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+
+
+@media screen and (max-width: 600px) {
+    .vehicle-description {
+      padding: .8em;
+      margin: 0px;
+    }
+
+    .title{
+        font-size: 1.3em;
+        margin-bottom: 1.4em;
+    }
 }
+
+
+
