@@ -180,6 +180,10 @@ select{
     padding-left: 0!important;    
 }
 
+li a{
+    cursor: pointer;
+}
+
 mc-breadcrumbs{
     & ol.breadcrumb{
         margin-bottom: 0 !important;

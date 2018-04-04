@@ -1,4 +1,4 @@
-import { MappingService } from './../mapping/mapping.service';
+import { MappingService } from './../../mapping/mapping.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Constants } from '../../../assets/constants/constant';

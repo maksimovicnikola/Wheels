@@ -26,6 +26,9 @@ export class AdvertisementDetailsComponent implements OnInit {
   private images: Array<any> = [];
 
   ngOnInit() {
+
+    let id = this.activatedRoute.url.subscribe(x => {console.log(x)})
+
     //getting advertisement id from url, later to change to get via activated route, not by split
     let url = this.router.url;
     let splitedUrl = url.split('/');

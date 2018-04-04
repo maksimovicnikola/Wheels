@@ -1,4 +1,5 @@
-import { MappingService } from './services/mapping/mapping.service';
+import { ApiService } from './services/api/api.service';
+import { MappingService } from './mapping/mapping.service';
 import { HomepageService } from './services/homepage/homepage.service';
 import { AdvertisementsService } from './services/advertisements/advertisements.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,9 @@ import { AdvertisementDetailsComponent } from './components/advertisement-detail
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LightboxModule } from 'angular2-lightbox';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth/auth.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { LightboxModule } from 'angular2-lightbox';
     VehicleComponent,
     HomeComponent,
     AdvertisementDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,10 @@ import { LightboxModule } from 'angular2-lightbox';
   providers: [AppService, 
     AdvertisementsService, 
     HomepageService, 
-    MappingService
+    MappingService,
+    AuthService,
+    ApiService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

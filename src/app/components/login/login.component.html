@@ -1,0 +1,26 @@
+<header></header>
+<div class="container mt1">
+  <div class=".offset-md-3 col-md-6 offset-md-3">
+    <div class="jumbotron">
+      <h1 class="display-4 tx-c">Log in and drive!</h1>
+      <hr class="my-4">
+      <form #form="ngForm" (ngSubmit)="signin(form.value)">
+        <div class="form-group">
+          <label for="emailLogin">Email</label>
+          <input type="text" class="form-control" #Email="ngModel" name="Email" ngModel id="emailLogin" value="maksimovic@yahoo.com" placeholder="example@domain.com" required/>
+        </div>
+        <div class="alert alert-danger" *ngIf="Email.touched && Email.errors">Email is required!</div>
+        <div class="form-group">
+          <label for="passwordLogin">Password</label>
+          <input type="text" class="form-control" #Password="ngModel" name="Password" ngModel id="passwordLogin" value="nikola" placeholder="*****" required/>
+        </div>
+        <div class="alert alert-danger" *ngIf="Password.touched && Password.errors">Password is required!</div>        
+        <p class="lead">
+          <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-md">Submit</button>
+        </p>
+      </form>
+
+      <div class="alert alert-danger" *ngIf="isSignInError">Email and/or password are invalid!</div>        
+    </div>
+  </div>
+</div>

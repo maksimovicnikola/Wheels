@@ -37,6 +37,9 @@ export class HomeComponent implements OnInit {
   private advertisements: HomeAdvertisement[] = [];
   private showImage: any;
 
+  //this variable is used for ngSwitch between filter tabs
+  private filterViewMode: string = 'basicFilter';
+
   ngOnInit() {
     this.homepageService.getHomepageData().subscribe((result: HomepageData) => {
       this.vehicleMakes = result.Makes;
@@ -53,6 +56,7 @@ export class HomeComponent implements OnInit {
     if (this.selectedVehicleMake != -1) {
       this.setVehicleMake();
     }
+
     this.setVehicleMake();
   }
 

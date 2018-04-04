@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Constants } from '../assets/constants/constant';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MappingService } from './services/mapping/mapping.service';
+import { MappingService } from './mapping/mapping.service';
 
 @Injectable()
 export class AppService {

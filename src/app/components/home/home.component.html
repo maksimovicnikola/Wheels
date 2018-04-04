@@ -5,39 +5,46 @@
     </div>
 </div>
 <div class="container">
-    <div class="card text-center mt-minus5 box-shad">
+    <div class="card text-center mt-minus5 box-shad" [ngSwitch]="filterViewMode">
         <div class="card-header primary-bck f-opa-85">
             <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+                <li class="nav-item" (click)="filterViewMode = 'basicFilter'">
+                    <a class="nav-link" [ngClass]="{'active': filterViewMode == 'basicFilter', 
+                        'clr-white': filterViewMode != 'basicFilter'}">
+                        Basic
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled clr-white" href="#">Link</a>
+                <li class="nav-item" (click)="filterViewMode='advancedFilter'">
+                    <a class="nav-link" [ngClass]="{'active': filterViewMode =='advancedFilter',
+                                        'clr-white': filterViewMode != 'advancedFilter'}">Advanced</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled clr-white" href="#">Disabled</a>
+                <li class="nav-item" (click)="filterViewMode='other'">
+                    <a class="nav-link" [ngClass]="{'active': filterViewMode !='basicFilter' && filterViewMode !='advancedFilter',
+                    'clr-white': filterViewMode == 'basicFilter' || filterViewMode == 'advancedFilter' }">Other</a>
                 </li>
             </ul>
         </div>
-        <div class="card-body">
+        <div class="card-body" *ngSwitchCase="'basicFilter'">
             <form>
                 <div class="filter-box">
                     <div class="form-row align-items-center">
                         <div class="col-md-2 col-xs-10 my-1">
-                            <select class="custom-select mr-sm-2" id="selectType" name="selectType" (change)="selectedVehicleModel = '-1'; onChangeVehicleType()" [(ngModel)]="selectedVehicleType">
+                            <select class="custom-select mr-sm-2" id="selectType" name="selectType" (change)="selectedVehicleModel = '-1'; onChangeVehicleType()"
+                                [(ngModel)]="selectedVehicleType">
                                 <option style="max-width: 50px;" value="-1">All types</option>
                                 <option style="max-width: 50px;" *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-xs-10 my-1">
-                            <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="selectedVehicleModel = '-1'; setVehicleMake()" [(ngModel)]="selectedVehicleMake">
-                                <option  value="-1">All makes</option>
+                            <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="selectedVehicleModel = '-1'; setVehicleMake()"
+                                [(ngModel)]="selectedVehicleMake">
+                                <option value="-1">All makes</option>
                                 <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-xs-10 my-1">
                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel" name="selectModel" [(ngModel)]="selectedVehicleModel">
-                                <option  value="-1">All models</option>
+                                <option value="-1">All models</option>
                                 <option *ngFor="let vehicle of vehicleModels" [ngValue]=vehicle.IdRow>{{vehicle.ModelName}}</option>
                             </select>
                         </div>
@@ -49,6 +56,14 @@
                     </div>
                 </div>
             </form>
+        </div>
+
+        <div class="card-body" *ngSwitchCase="'advancedFilter'">
+            This is some text within a card body.
+        </div>
+
+        <div class="card-body" *ngSwitchDefault>
+            This is some text created by ngSwitchDefault.
         </div>
     </div>
 </div>
