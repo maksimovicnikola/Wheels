@@ -20,7 +20,7 @@ export class ApiService {
   //   return this.http.get(url, options);
   // }
 
-  postAuth(url: string, data?: LoginCredentials){
+  tokenAuth(url: string, data?: LoginCredentials){
 
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
@@ -34,7 +34,7 @@ export class ApiService {
 
 
   //getting data via post, sending token to get data
-  postAuthData(url: string, body: LoginCredentials){
+  postAuth(url: string, body: LoginCredentials){
     let token = localStorage.getItem('token');
 
     let headers = new Headers({ 'Content-Type': 'application/json' });

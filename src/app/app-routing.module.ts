@@ -13,64 +13,34 @@ const routes: Routes = [
     data:
       {
         breadcrumbs: 'Home'
-      }
-  },
-  {
-    path: '',
-    component: VehicleComponent,
-    data:
-      {
-        breadcrumbs: 'Home'
       },
-    children: [
-      {
-        path: 'vehicles',
-        component: VehicleComponent,
-        data: {
-          breadcrumbs: 'Vehicles'
-        },
-        children:
-          [
-            {
-              path: ':id',
-              component: VehicleComponent,
-              data: {
-                breadcrumbs: true,
-                text: "Details"
-              }
-            }
-          ]
-      }
-    ]
   },
   {
-    path: '',
+    path: 'vehicles',
+    component: VehicleComponent,
+    data: {
+      breadcrumbs: 'Vehicles'
+    },
+    children:
+      [
+        {
+          path: ':id',
+          component: VehicleComponent,
+          data: {
+            breadcrumbs: true,
+            text: "Details"
+          }
+        }
+      ]
+  },
+  {
+    path: 'advertisement-details/:id',
     component: AdvertisementDetailsComponent,
     data:
       {
-        breadcrumbs: 'Home'
-      },
-    children: [
-      {
-        path: 'advertisement-details',
-        component: AdvertisementDetailsComponent,
-        data: {
-          breadcrumbs: false
-          // breadcrumbs: 'Vehicles'
-        },
-        children:
-          [
-            {
-              path: ':id',
-              component: AdvertisementDetailsComponent,
-              data: {
-                breadcrumbs: true,
-                text: "Vehicle Details"
-              }
-            }
-          ]
+        breadcrumbs: true,
+        text: "Advertisement Details"
       }
-    ]
   },
   {
     path: 'login',

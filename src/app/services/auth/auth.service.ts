@@ -15,7 +15,7 @@ export class AuthService {
   signin(credentials: LoginCredentials){
     var url = this.mapping.get_token;
 
-    return this.api.postAuth(url, credentials);
+    return this.api.tokenAuth(url, credentials);
   }
 
   saveToken(){

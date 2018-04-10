@@ -27,15 +27,9 @@ export class AdvertisementDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    let id = this.activatedRoute.url.subscribe(x => {console.log(x)})
-
-    //getting advertisement id from url, later to change to get via activated route, not by split
-    let url = this.router.url;
-    let splitedUrl = url.split('/');
-    let advertisementId = Number(splitedUrl[splitedUrl.length - 1]);
-
-
-    let advertisement = this.advertisementService.getAdvertisementDetailsById(advertisementId)
+    let id = this.activatedRoute.snapshot.params['id'];
+    console.log(id)
+    let advertisement = this.advertisementService.getAdvertisementDetailsById(id)
       .subscribe((response: Advertisement) => {
         this.advertisementDetails = response;
 
