@@ -2,6 +2,7 @@ import { UserService } from './../../services/user/user.service';
 import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginCredentials } from '../../../models/login-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   private isSignInError: boolean = false;
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
       .subscribe(response => {
         if (response){
             let tokenData = response.json();
-            localStorage.setItem('token', tokenData.access_token);
+            this.auth.saveToken(tokenData);
             this.isSignInError = false;
             this.getUserDataByEmail(form.Email);
         }
@@ -36,6 +38,12 @@ export class LoginComponent implements OnInit {
 
   getUserDataByEmail(email: string){
     this.userService.getUserDataByEmail(email)
-        .subscribe(user => {console.log(user.json())});
+        .subscribe((user: any) =>
+          {
+            user = user.json();
+            this.auth.saveUserToLocalStorage(user);
+
+            this.router.navigate(['/']);
+        } );
   }
 }

@@ -17,7 +17,7 @@ export class UserService {
     let usr = new LoginCredentials();
     usr.Email = email;
 
-    return this.api.postAuth(url, usr)    
+    return this.api.postAuth(url, usr)   
   }
 
 }

@@ -28,7 +28,7 @@ export class AdvertisementDetailsComponent implements OnInit {
   ngOnInit() {
 
     let id = this.activatedRoute.snapshot.params['id'];
-    console.log(id)
+
     let advertisement = this.advertisementService.getAdvertisementDetailsById(id)
       .subscribe((response: Advertisement) => {
         this.advertisementDetails = response;
@@ -38,7 +38,6 @@ export class AdvertisementDetailsComponent implements OnInit {
 
         this.setLightBox(imagesPaths, description);
 
-        response.VehicleTypeName
       }
       )
 
