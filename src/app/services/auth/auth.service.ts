@@ -14,17 +14,27 @@ export class AuthService {
   ) { }
 
   getLoggedUser() {
-    let loggedUser = localStorage.getItem('UserInfo');
+    const loggedUser = localStorage.getItem('UserInfo');
 
-    let user = JSON.parse(loggedUser);
+    const user = JSON.parse(loggedUser);
 
     return user;
   }
 
-  signin(credentials: LoginCredentials) {
-    var url = this.mapping.get_token;
+  getToken(credentials: LoginCredentials) {
+    const url = this.mapping.get_token;
 
-    return this.api.tokenAuth(url, credentials);
+    return this.api.getToken(url, credentials);
+  }
+
+  login(form: LoginCredentials) {
+    const url = this.mapping.post_login;
+
+    const usr = new LoginCredentials();
+    usr.Email = form.Email;
+    usr.Password = form.Password;
+
+    return this.api.postAuth(url, usr);
   }
 
   logout() {
@@ -36,7 +46,7 @@ export class AuthService {
   }
 
   saveUserToLocalStorage(user: UserLocalStorage) {
-    let strUser = JSON.stringify(user);
+    const strUser = JSON.stringify(user);
 
     localStorage.setItem('UserInfo', strUser);
   }

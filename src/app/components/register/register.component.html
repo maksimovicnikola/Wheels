@@ -1,0 +1,77 @@
+<header></header>
+
+<div class="container mt2">
+  <div class="row">
+    <form class="offset-md-2 col-md-8 offset-md-2" [formGroup]="form" (ngSubmit)="register()">
+      <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" formControlName="firstName"
+            [(ngModel)]="model.FirstName">
+          <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
+            <small *ngIf="firstName.errors?.required">First name is required!</small>
+            <small *ngIf="firstName.errors?.minlength">First name mast be longer then 3 letters!</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" formControlName="lastName"
+            [(ngModel)]="model.LastName">
+          <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+            <small *ngIf="lastName.errors?.required">First name is required!</small>
+            <small *ngIf="lastName.errors?.minlength">First name mast be longer then 3 letters!</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="username" placeholder="Username" name="username" formControlName="username" [(ngModel)]="model.Username">
+          <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+            <small *ngIf="username.errors?.required">First name is required!</small>
+            <small *ngIf="username.errors?.minlength">First name mast be longer then 3 letters!</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" formControlName="email" [(ngModel)]="model.Email">
+          <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+            <!-- <small *ngIf="email.errors?.required">First name is required!</small> -->
+            <small *ngIf="email.errors?.email">Please enter a valid email!</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password" formControlName="password"
+            [(ngModel)]="model.Password">
+          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <small *ngIf="password.errors?.required">First name is required!</small>
+            <small *ngIf="password.errors?.minlength">First name mast be longer then 5 letters!</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword4" class="col-sm-2 col-form-label">Repeat Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Repeat Password" formControlName="repeatPassword">
+          <div *ngIf="repeatPassword.touched && repeatPassword.invalid" class="alert alert-danger">
+            <small *ngIf="repeatPassword.errors?.required">First name is required!</small>
+            <small *ngIf="repeatPassword.errors?.spaceNotAllowed">Space is not allowed!</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-4 col-4 offset-4 text-center">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

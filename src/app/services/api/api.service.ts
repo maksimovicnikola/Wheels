@@ -20,7 +20,7 @@ export class ApiService {
   //   return this.http.get(url, options);
   // }
 
-  tokenAuth(url: string, data?: LoginCredentials){
+  getToken(url: string, data?: LoginCredentials){
 
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 

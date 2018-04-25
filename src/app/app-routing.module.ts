@@ -1,3 +1,4 @@
+import { RegisterComponent } from './components/register/register.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VehicleComponent } from './components/vehicle/vehicle.component';
@@ -45,6 +46,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    data:
+      {
+        breadcrumbs: false
+      }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
     data:
       {
         breadcrumbs: false
