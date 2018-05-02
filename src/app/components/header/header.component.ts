@@ -1,5 +1,6 @@
 import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'header',
@@ -9,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -17,8 +19,15 @@ export class HeaderComponent implements OnInit {
 
   user = this.auth.getLoggedUser();
 
-  logout()
-  {
+  setEnglish() {
+    this.translate.use('en');
+  }
+
+  setSerbian() {
+    this.translate.use('sr');
+  }
+
+  logout() {
     this.auth.logout();
   }
 }

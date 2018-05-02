@@ -11,16 +11,16 @@
                 <li class="nav-item" (click)="filterViewMode = 'basicFilter'">
                     <a class="nav-link" [ngClass]="{'active': filterViewMode == 'basicFilter', 
                         'clr-white': filterViewMode != 'basicFilter'}">
-                        Basic
+                        {{'basic' | translate}}
                     </a>
                 </li>
                 <li class="nav-item" (click)="filterViewMode='advancedFilter'">
                     <a class="nav-link" [ngClass]="{'active': filterViewMode =='advancedFilter',
-                                        'clr-white': filterViewMode != 'advancedFilter'}">Advanced</a>
+                                        'clr-white': filterViewMode != 'advancedFilter'}">{{'advanced' | translate}}</a>
                 </li>
                 <li class="nav-item" (click)="filterViewMode='other'">
                     <a class="nav-link" [ngClass]="{'active': filterViewMode !='basicFilter' && filterViewMode !='advancedFilter',
-                    'clr-white': filterViewMode == 'basicFilter' || filterViewMode == 'advancedFilter' }">Other</a>
+                    'clr-white': filterViewMode == 'basicFilter' || filterViewMode == 'advancedFilter' }">{{'other' | translate}}</a>
                 </li>
             </ul>
         </div>
@@ -31,26 +31,26 @@
                         <div class="col-md-2 col-xs-10 my-1">
                             <select class="custom-select mr-sm-2" id="selectType" name="selectType" (change)="selectedVehicleModel = '-1'; onChangeVehicleType()"
                                 [(ngModel)]="selectedVehicleType">
-                                <option style="max-width: 50px;" value="-1">All types</option>
+                                <option style="max-width: 50px;" value="-1">{{'all_types' | translate}}</option>
                                 <option style="max-width: 50px;" *ngFor="let vehicle of vehicleTypes" [ngValue]=vehicle.RowId>{{vehicle.TypeName}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-xs-10 my-1">
                             <select class="custom-select mr-sm-2" id="selectMake" name="selectMake" (change)="selectedVehicleModel = '-1'; setVehicleMake()"
                                 [(ngModel)]="selectedVehicleMake">
-                                <option value="-1">All makes</option>
+                                <option value="-1">{{'all_makes' | translate}}</option>
                                 <option *ngFor="let vehicle of vehicleMakes" [ngValue]=vehicle.RowId>{{vehicle.MakeName}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-xs-10 my-1">
                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelectModel" name="selectModel" [(ngModel)]="selectedVehicleModel">
-                                <option value="-1">All models</option>
+                                <option value="-1">{{'all_models' | translate}}</option>
                                 <option *ngFor="let vehicle of vehicleModels" [ngValue]=vehicle.IdRow>{{vehicle.ModelName}}</option>
                             </select>
                         </div>
                         <div class="col-auto my-1 mlrauto">
                             <button type="button" class="btn btn-primary" (click)="filterAdvertisements()">
-                                <i class="fa fa-search"></i> Filter
+                                <i class="fa fa-search"></i> {{'filter' | translate}}
                             </button>
                         </div>
                     </div>

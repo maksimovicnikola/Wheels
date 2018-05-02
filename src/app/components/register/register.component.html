@@ -4,72 +4,68 @@
   <div class="row">
     <form class="offset-md-2 col-md-8 offset-md-2" [formGroup]="form" (ngSubmit)="register()">
       <div class="form-group row">
-        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <label for="firstName" class="col-sm-2 col-form-label">{{"first_name" | translate}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" formControlName="firstName"
-            [(ngModel)]="model.FirstName">
+          <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" [(ngModel)]="model.FirstName">
           <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
-            <small *ngIf="firstName.errors?.required">First name is required!</small>
-            <small *ngIf="firstName.errors?.minlength">First name mast be longer then 3 letters!</small>
+            <small *ngIf="firstName.errors?.required">{{'first_name_required' | translate}}</small>
+            <small *ngIf="firstName.errors?.minlength">{{'first_name_min_letters' | translate}}</small>
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+        <label for="lastName" class="col-sm-2 col-form-label">{{"last_name" | translate}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" formControlName="lastName"
-            [(ngModel)]="model.LastName">
+          <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName" [(ngModel)]="model.LastName">
           <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
-            <small *ngIf="lastName.errors?.required">First name is required!</small>
-            <small *ngIf="lastName.errors?.minlength">First name mast be longer then 3 letters!</small>
+            <small *ngIf="lastName.errors?.required">{{'last_name_required' | translate}}</small>
+            <small *ngIf="lastName.errors?.minlength">{{'last_name_min_letters' | translate}}</small>
           </div>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="username" class="col-sm-2 col-form-label">Username</label>
+        <label for="username" class="col-sm-2 col-form-label">{{"username" | translate}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="username" placeholder="Username" name="username" formControlName="username" [(ngModel)]="model.Username">
+          <input type="text" class="form-control" id="username" name="username" formControlName="username" [(ngModel)]="model.Username">
           <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-            <small *ngIf="username.errors?.required">First name is required!</small>
-            <small *ngIf="username.errors?.minlength">First name mast be longer then 3 letters!</small>
+            <small *ngIf="username.errors?.required">{{'username_required' | translate}}</small>
+            <small *ngIf="username.errors?.minlength">{{'username_min_letters' | translate}}</small>
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <label for="inputEmail3" class="col-sm-2 col-form-label">{{"email" | translate}}</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" formControlName="email" [(ngModel)]="model.Email">
+          <input type="email" class="form-control" id="inputEmail3" name="email" formControlName="email" [(ngModel)]="model.Email">
           <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
             <!-- <small *ngIf="email.errors?.required">First name is required!</small> -->
-            <small *ngIf="email.errors?.email">Please enter a valid email!</small>
+            <small *ngIf="email.errors?.email">{{"email_validation" | translate}}</small>
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <label for="inputPassword3" class="col-sm-2 col-form-label">{{"password" | translate}}</label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password" formControlName="password"
-            [(ngModel)]="model.Password">
+          <input type="password" class="form-control" id="inputPassword3" name="password" formControlName="password" [(ngModel)]="model.Password">
           <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-            <small *ngIf="password.errors?.required">First name is required!</small>
-            <small *ngIf="password.errors?.minlength">First name mast be longer then 5 letters!</small>
+            <small *ngIf="password.errors?.required">{{"password_required" | translate}}</small>
+            <small *ngIf="password.errors?.minlength">{{"password_min_letters" | translate}}</small>      
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputPassword4" class="col-sm-2 col-form-label">Repeat Password</label>
+        <label for="inputPassword4" class="col-sm-2 col-form-label">{{"repeat_password" | translate}}</label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword4" placeholder="Repeat Password" formControlName="repeatPassword">
+          <input type="password" class="form-control" id="inputPassword4" formControlName="repeatPassword">
           <div *ngIf="repeatPassword.touched && repeatPassword.invalid" class="alert alert-danger">
-            <small *ngIf="repeatPassword.errors?.required">First name is required!</small>
-            <small *ngIf="repeatPassword.errors?.spaceNotAllowed">Space is not allowed!</small>
+            <small *ngIf="repeatPassword.errors?.required">{{"password_required" | translate}}</small>
           </div>
         </div>
       </div>
       <div class="form-group row">
         <div class="offset-4 col-4 offset-4 text-center">
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary">{{"register" | translate}}</button>
         </div>
       </div>
     </form>

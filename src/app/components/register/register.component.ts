@@ -24,14 +24,14 @@ export class RegisterComponent implements OnInit {
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(5)]),
-    repeatPassword: new FormControl('', [Validators.required, RegisterComponent.spaceNotAllowed]),
+    repeatPassword: new FormControl('', [Validators.required]),
   })
 
   ngOnInit() {
   }
 
   static spaceNotAllowed(control: AbstractControl): ValidationErrors | null {
-    if ((control.value as string).indexOf(' ') > -1) {
+    if ((control.value as string) != undefined && (control.value as string).indexOf(' ') > -1) {
       return { passwordEqualWithRepeatPassword: true }
     }
 
