@@ -4,7 +4,7 @@ import { HomepageService } from './services/homepage/homepage.service';
 import { AdvertisementsService } from './services/advertisements/advertisements.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { VehicleComponent } from './components/vehicle/vehicle.component';
@@ -19,6 +19,13 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth/auth.service';
 import { RegisterComponent } from './components/register/register.component';
 import { RegistrationCompleteComponent } from './components/registration-complete/registration-complete.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -38,12 +45,18 @@ import { RegistrationCompleteComponent } from './components/registration-complet
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    LightboxModule
-  ],
-  exports:[],
-  providers: [AppService, 
-    AdvertisementsService, 
-    HomepageService, 
+    LightboxModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })],
+  exports: [],
+  providers: [AppService,
+    AdvertisementsService,
+    HomepageService,
     MappingService,
     AuthService,
     ApiService
