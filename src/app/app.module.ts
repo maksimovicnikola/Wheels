@@ -18,6 +18,7 @@ import { LightboxModule } from 'angular2-lightbox';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth/auth.service';
 import { RegisterComponent } from './components/register/register.component';
+import { RegistrationCompleteComponent } from './components/registration-complete/registration-complete.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './components/register/register.component';
     AdvertisementDetailsComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistrationCompleteComponent
   ],
   imports: [
     BrowserModule,

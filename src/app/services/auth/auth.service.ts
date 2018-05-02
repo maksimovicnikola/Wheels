@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { MappingService } from './../../mapping/mapping.service';
 import { ApiService } from './../api/api.service';
 import { LoginCredentials } from './../../../models/login-model';
@@ -10,7 +11,8 @@ export class AuthService {
 
   constructor(
     private api: ApiService,
-    private mapping: MappingService
+    private mapping: MappingService,
+    private http: HttpClient
   ) { }
 
   getLoggedUser() {
@@ -51,4 +53,9 @@ export class AuthService {
     localStorage.setItem('UserInfo', strUser);
   }
 
+  setUserActive(id: string) {
+    const url = this.mapping.set_user_active.replace('{:id}', id);
+
+    return this.http.get(url);
+  }
 }

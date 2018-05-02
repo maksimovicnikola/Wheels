@@ -39,10 +39,18 @@ export class LoginComponent implements OnInit {
   login(form: LoginCredentials) {
     this.auth.login(form)
       .subscribe((user: any) => {
-        user = user.json();
-        this.auth.saveUserToLocalStorage(user);
+        if (user._body != "null") {
+          user = user.json();
+          this.auth.saveUserToLocalStorage(user);
 
-        this.router.navigate(['/']);
-      });
+          this.router.navigate(['/']);
+        }
+        else {
+          this.isSignInError = true;
+        }
+      },
+        err => {
+          this.isSignInError = true;
+        });
   }
 }

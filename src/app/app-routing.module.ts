@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { McBreadcrumbsModule } from 'ngx-breadcrumbs';
 import { AdvertisementDetailsComponent } from './components/advertisement-details/advertisement-details.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegistrationCompleteComponent } from './components/registration-complete/registration-complete.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,13 @@ const routes: Routes = [
       {
         breadcrumbs: false
       }
+  },
+  {
+    path: 'registration-confirmation/:id',
+    component: RegistrationCompleteComponent,
+    data:{
+      breadcrumbs: false
+    }
   },
   {
     path: '**',

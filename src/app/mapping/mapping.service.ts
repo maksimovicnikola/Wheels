@@ -17,4 +17,5 @@ export class MappingService {
   public get_models_for_make: string = Constants.GLOBAL_SERVER_PATH + '/api/getallmodelsformake/{idMake}/{idType}';
   public post_login: string = Constants.GLOBAL_SERVER_PATH + '/api/login';
   public get_register: string = Constants.GLOBAL_SERVER_PATH + '/api/register';
+  public set_user_active: string = Constants.GLOBAL_SERVER_PATH + '/api/activateuser/{:id}'
 }
