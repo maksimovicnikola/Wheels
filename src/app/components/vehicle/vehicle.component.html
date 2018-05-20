@@ -1,0 +1,14 @@
+<header></header>
+<div class="row">
+  <div class="container">
+    <ul>
+      <li *ngFor="let vehicle of vehicles">
+        Type: {{vehicle.typeVehicleName}}
+        <br> Brend: {{vehicle.makeVehicleName}}
+        <br> Marka: {{vehicle.modelName}}
+      </li>
+    </ul>
+    <button class="btn" (click)="goBack()">Back</button>
+    <button class="btn btn-primary" (click)="getAllVehicles()">Send request</button>
+  </div>
+</div>

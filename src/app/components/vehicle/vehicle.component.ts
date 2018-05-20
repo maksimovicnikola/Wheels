@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: '',
@@ -17,7 +17,7 @@ export class VehicleComponent implements OnInit {
   ) { }
 
   private vehicles: any;
-
+  
   ngOnInit() {
     // on this way we can get ids or values from params in url
     // const id = +this.route.snapshot.paramMap.get('id');
@@ -30,7 +30,7 @@ export class VehicleComponent implements OnInit {
   }
 
   getAllVehicles() {
-    this.appService.getAllVehicles().subscribe(response => {
+    this.appService.getAllVehicles().subscribe((response: any) => {
       this.vehicles = response;
     })
   }
