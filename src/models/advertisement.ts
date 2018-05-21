@@ -11,7 +11,17 @@ export class Advertisement {
     public VehicleModelId: number;
     public FirstnameUser: string;
     public LastnameUser: string;
-    public Features:string[];
+    public Features: string[];
     public ImagePath: string;
     public ImagePathSecured: any;
+    public AdvertisementTitle: string;
+    public Registered?: boolean;
+    public Transmission: string;
+    public ExteriorColor: string;
+    public InteriorColor: string;
+    public Mileage?: number;
+    public FuelType: string;
+    public EnginePower?: number;
+    public HorsePower?: number;
+    public Images: string[];
 }

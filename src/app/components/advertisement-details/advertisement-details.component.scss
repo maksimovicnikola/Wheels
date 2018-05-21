@@ -1,0 +1,52 @@
+.border-primary-color{
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.vehicle-description{
+    width: 100%;
+    margin: .8em;
+}
+
+.border-vehicle-description{
+    border-bottom: 1px solid gray;
+    margin-top: .7em;
+    width: 100%;
+}
+
+.icon{
+    display: inline;
+}
+.vehicle-body{
+    display: inline;
+    color: gray;
+    font-size: .8em;
+}
+
+.vehicle-body-description{
+    display: inline;
+    padding-left: 20px;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .vehicle-description {
+      padding: .8em;
+      margin: 0px;
+    }
+
+    .title{
+        font-size: 1.3em;
+        margin-bottom: 1.4em;
+    }
+}
+
+
+

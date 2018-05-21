@@ -126,9 +126,9 @@
     ],
     "component-selector": [
       true,
-      "element",
-      "app",
-      "kebab-case"
+      "element"
+      // "app",
+      // "kebab-case"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

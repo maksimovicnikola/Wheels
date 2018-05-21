@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-// @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~angular2-lightbox/lightbox.css';
+@import '~bootstrap/scss/bootstrap.scss';
 
 $primary-color:#153e4d;
 
@@ -20,21 +21,23 @@ $primary-color:#153e4d;
     font-weight: normal;
     font-style: normal;
     color: #aaa;
-    font-size: 12px;
+    font-size: .75em;
     text-transform: uppercase;
     line-height: normal;
 }
 
-.breadcrumb{
-    margin-bottom: 0 !important;
-}
-
 html, body {
     height: 100%;
+    font-size: 16px;
+    width: 100%;
+}
+
+.w100{
+    width: 100%;
 }
 
 .dsp-inl{
-    display: inline;
+    display: inline !important;
 }
 
 select{
@@ -61,6 +64,14 @@ select{
     padding: 10!important;
 }
 
+.pl15{
+    padding-left: 15px !important;
+}
+
+.pr15{
+    padding-right: 15px !important;
+}
+
 .mar-auto{
     margin-left: auto!important;
     margin-right: auto!important; 
@@ -68,6 +79,22 @@ select{
 
 .mr15{
     margin-right: 15px !important;
+}
+
+.mr1{
+    margin-right: 1em;
+}
+
+.mr05{
+    margin-right: 0.5em;;
+}
+
+.ml15{
+    margin-left: 15px !important;
+}
+
+.ml4{
+    margin-left: 4em !important;
 }
 
 .m5{
@@ -99,8 +126,41 @@ select{
     text-align: center!important;
 }
 
+
+.tx-r{
+    text-align: right!important;
+}
+
+.mt40{
+    margin-top: 40px!important;
+}
+
+.mt30{
+    margin-top: 30px!important;
+}
+
 .mt20{
     margin-top: 20px!important;
+}
+
+.mt10{
+    margin-top: 10px!important;
+}
+
+.mt1{
+    margin-top: 1em!important;
+}
+
+.mt2{
+    margin-top: 2em!important;
+}
+
+.mb20{
+    margin-bottom: 20px!important;
+}
+
+.mb2{
+    margin-bottom: 2em;
 }
 
 .ta-l{
@@ -109,4 +169,67 @@ select{
 
 .ta-r{
     text-align: right!important;
+}
+
+.f-opa-85{
+    filter: opacity(85%)
+}
+
+.title{
+    overflow: hidden;
+    font-size: 2em;
+    color: #153e4d;
+    margin-bottom: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 0!important;    
+}
+
+li a{
+    cursor: pointer;
+}
+
+mc-breadcrumbs{
+    & ol.breadcrumb{
+        margin-bottom: 0 !important;
+        background-color: white;
+        padding: 0;
+    }
+    & li.breadcrumb-item{
+        text-transform: uppercase;
+        margin-right: 3px;
+
+        & a{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: .8em;
+        }
+        & span{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: .8em;
+        }
+
+        &:before{
+            content: none !important;
+        }
+        &:after{
+            content:'>>';
+            font-family:cursive;
+            font-size: .8em;
+        }
+        &:last-of-type:after {
+            content: none;
+            margin: 0;
+        }
+    }
+}
+
+.float-left{
+    float: left !important;
+}
+
+.float-right{
+    float: right !important;
+}
+
+.icon{
+    width: 2em;
 }

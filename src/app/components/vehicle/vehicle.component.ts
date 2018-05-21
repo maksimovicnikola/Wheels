@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-// import { Vehicle } from '../../models/vehicle';
+import { AppService } from '../../app.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '',
   templateUrl: './vehicle.component.html',
   styleUrls: ['./vehicle.component.scss']
@@ -18,14 +18,14 @@ export class VehicleComponent implements OnInit {
   ) { }
 
   private vehicles: any;
-  
+
   ngOnInit() {
     // on this way we can get ids or values from params in url
     // const id = +this.route.snapshot.paramMap.get('id');
     // console.log(id);
   }
 
-  //returns one step back in navigation
+  // returns one step back in navigation
   goBack(): void {
     this.location.back();
   }
@@ -33,7 +33,7 @@ export class VehicleComponent implements OnInit {
   getAllVehicles() {
     this.appService.getAllVehicles().subscribe((response: any) => {
       this.vehicles = response;
-    })
+    });
   }
 
 }

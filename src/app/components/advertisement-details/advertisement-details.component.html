@@ -1,0 +1,121 @@
+<header></header>
+<div class="container mt40">
+    <mc-breadcrumbs></mc-breadcrumbs>
+</div>
+<div class="container mt10">
+    <div class="row">
+        <div class="border-primary-color ml15"></div>
+    </div>
+</div>
+<div class="container mt10">
+    <div class="row">
+        <div class="col-md-8 col-12 mb2">
+            <h2 class="title dsp-inl col-md-8 col-7">{{advertisementDetails.AdvertisementTitle}}</h2>
+            <h3 class="title dsp-inl col-md-4 col-5">{{advertisementDetails.Price | currency:'EUR':'0.0.1'}}</h3>
+        </div>
+        <div *ngFor="let image of images; let i=index" class="mb20" [ngClass]="(i==0)?'col-md-12 col-12':'col-md-3 col-6'">
+            <div *ngIf="i == 0">
+                <div class="col-md-8 col-12 p0">
+                    <img [src]="image.thumb" width="100%" (click)="openLightbox(i)" />
+                </div>
+            </div>
+            <div *ngIf="i != 0">
+                <img [src]="image.thumb" width="100%" (click)="openLightbox(i)" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt10">
+    <div class="row">
+        <!-- First row -->
+        <div class="col-md-4 col-12 mt1">
+            <div class="col-7 dsp-inl p0">
+                <div class="col-4 dsp-inl p0">
+                    <img class="icon" src="../../../assets/icons/car-city.png" />
+                </div>
+                <div class="col-8 dsp-inl p0">
+                    <span class="vehicle-body-description">Body</span>
+                </div>
+            </div>
+            <div class="col-5 dsp-inl pull-right">
+                <span class="col-6">{{advertisementDetails.VehicleTypeName}}</span>
+            </div>
+            <div class="border-vehicle-description"></div>
+        </div>
+        <div class="col-md-4 col-12 mt1">
+            <div class="col-7 dsp-inl p0">
+                <div class="col-4 dsp-inl p0">
+                    <img class="icon" src="../../../assets/icons/mileage.png" />
+                </div>
+                <div class="col-8 dsp-inl p0">
+                    <span class="vehicle-body-description">Mileage</span>
+                </div>
+            </div>
+            <div class="col-5 dsp-inl pull-right">
+                <span class="col-6">{{advertisementDetails.Mileage}}</span>
+            </div>
+            <div class="border-vehicle-description"></div>
+        </div>
+        <div class="col-md-4 col-12 mt1">
+            <div class="col-7 dsp-inl p0">
+                <div class="col-4 dsp-inl p0">
+                    <img class="icon" src="../../../assets/icons/fuel.png" />
+                </div>
+                <div class="col-8 dsp-inl p0">
+                    <span class="vehicle-body-description">Fuel type</span>
+                </div>
+            </div>
+            <div class="col-5 dsp-inl pull-right">
+                <span class="col-6">{{advertisementDetails.FuelType}}</span>
+            </div>
+            <div class="border-vehicle-description"></div>
+        </div>
+
+
+        <!-- Second row -->
+        <div class="col-md-4 col-12 mt1">
+            <div class="col-7 dsp-inl p0">
+                <div class="col-4 dsp-inl p0">
+                    <img class="icon" src="../../../assets/icons/engine.png" />
+                </div>
+                <div class="col-8 dsp-inl p0">
+                    <span class="vehicle-body-description">Engine</span>
+                </div>
+            </div>
+            <div class="col-5 dsp-inl pull-right">
+                <span class="col-6">{{advertisementDetails.EnginePower}}</span>
+            </div>
+            <div class="border-vehicle-description"></div>
+        </div>
+        <div class="col-md-4 col-12 mt1">
+            <div class="col-7 dsp-inl p0">
+                <div class="col-4 dsp-inl p0">
+                    <img class="icon" src="../../../assets/icons/transmission.png" />
+                </div>
+                <div class="col-8 dsp-inl p0">
+                    <span class="vehicle-body-description">Transmission</span>
+                </div>
+            </div>
+            <div class="col-5 dsp-inl pull-right">
+                <span class="col-6">{{advertisementDetails.Transmission}}</span>
+            </div>
+            <div class="border-vehicle-description"></div>
+        </div>
+        <div class="col-md-4 col-12 mt1">
+            <div class="col-7 dsp-inl p0">
+                <div class="col-4 dsp-inl p0">
+                    <img class="icon" src="../../../assets/icons/registered.png" />
+                </div>
+                <div class="col-8 dsp-inl p0">
+                    <span class="vehicle-body-description">Registered</span>
+                </div>
+            </div>
+            <div class="col-5 dsp-inl pull-right">
+                <span class="col-6">
+                    <input type="checkbox" [checked]="advertisementDetails.Registered" disabled>
+                </span>
+            </div>
+            <div class="border-vehicle-description"></div>
+        </div>
+    </div>
+</div>
