@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { VehicleComponent } from './components/vehicle/vehicle.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { HttpModule, Http } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdvertisementDetailsComponent } from './components/advertisement-details/advertisement-details.component';
 import { HomeComponent } from './components/home/home.component';
@@ -41,7 +40,6 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

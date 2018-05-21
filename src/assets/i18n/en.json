@@ -32,5 +32,6 @@
   "login_and_drive": "Log in and drive!",
   "email_or_password_invalid": "Email and/or password are invalid!",
   "submit": "Submit",
-  "language": "Language"  
+  "language": "Language",
+  "wrong_credentials": "Please enter correct credentials!"
 }

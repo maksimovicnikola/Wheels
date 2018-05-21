@@ -1,5 +1,5 @@
 import { AuthService } from './../../services/auth/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  // tslint:disable-next-line:member-ordering
   user = this.auth.getLoggedUser();
 
   setEnglish() {

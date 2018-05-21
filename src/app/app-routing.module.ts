@@ -30,7 +30,7 @@ const routes: Routes = [
           component: VehicleComponent,
           data: {
             breadcrumbs: true,
-            text: "Details"
+            text: 'Details'
           }
         }
       ]
@@ -41,7 +41,7 @@ const routes: Routes = [
     data:
       {
         breadcrumbs: true,
-        text: "Advertisement Details"
+        text: 'Advertisement Details'
       }
   },
   {
@@ -63,7 +63,7 @@ const routes: Routes = [
   {
     path: 'registration-confirmation/:id',
     component: RegistrationCompleteComponent,
-    data:{
+    data: {
       breadcrumbs: false
     }
   },

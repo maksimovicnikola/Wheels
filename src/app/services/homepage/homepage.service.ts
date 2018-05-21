@@ -8,21 +8,21 @@ export class HomepageService {
 
   constructor(
     private http: HttpClient,
-    private mapping: MappingService    
+    private mapping: MappingService
   ) { }
 
-  getHomepageData(){
-    let url = this.mapping.homepage_data_api;
+  getHomepageData() {
+    const url = this.mapping.homepage_data_api;
 
     return this.http.get(url);
   }
 
-  filterAdvertisements(TypeId: number, MakeId: number, ModelId: number){
+  filterAdvertisements(TypeId: number, MakeId: number, ModelId: number) {
     let url = this.mapping.filter_advertisements_api;
 
-    url = url.replace("{typeId}", TypeId.toString())
-       .replace("{makeId}", MakeId.toString())
-       .replace("{modelId}", ModelId.toString());
+    url = url.replace('{typeId}', TypeId.toString())
+      .replace('{makeId}', MakeId.toString())
+      .replace('{modelId}', ModelId.toString());
 
     return this.http.get(url);
   }

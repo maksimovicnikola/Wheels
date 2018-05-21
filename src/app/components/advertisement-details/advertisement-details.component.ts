@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Lightbox } from 'angular2-lightbox';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'advertisement-details',
   templateUrl: './advertisement-details.component.html',
   styleUrls: ['./advertisement-details.component.scss']
@@ -27,29 +28,29 @@ export class AdvertisementDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    let id = this.activatedRoute.snapshot.params['id'];
+    const id = this.activatedRoute.snapshot.params['id'];
 
-    let advertisement = this.advertisementService.getAdvertisementDetailsById(id)
+    const advertisement = this.advertisementService.getAdvertisementDetailsById(id)
       .subscribe((response: Advertisement) => {
         this.advertisementDetails = response;
 
-        let imagesPaths = response.Images;
-        let description = response.Description;
+        const imagesPaths = response.Images;
+        const description = response.Description;
 
         this.setLightBox(imagesPaths, description);
 
       }
-      )
+      );
 
     this.subManager.add(advertisement);
   }
 
-  //set lightbox images and icon paths and caption
+  // set lightbox images and icon paths and caption
   setLightBox(imagesPaths: Array<string>, description: string) {
     imagesPaths.forEach(img => {
-      let absolutePath = img;
+      const absolutePath = img;
       let relativePath = absolutePath.split('src')[1];
-      relativePath = "../../.." + relativePath;
+      relativePath = '../../..' + relativePath;
       const src = relativePath;
       const caption = description;
       const thumb = relativePath;
@@ -71,6 +72,7 @@ export class AdvertisementDetailsComponent implements OnInit {
     this._lightbox.open(this.images, index);
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
     this.subManager.unsubscribe();
   }

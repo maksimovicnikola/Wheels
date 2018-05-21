@@ -12,30 +12,27 @@ export class AppService {
   ) { }
 
   sendRequestToServer() {
-    let url = this.mapping.get_all_users_api;
+    const url = this.mapping.get_all_users_api;
 
     return this.http.get(url);
   }
 
-  getAllVehicles()
-  {
-    let url = this.mapping.get_all_vehicles_api;
-    
-    return this.http.get(url);
-  }
-
-  getAllMakes()
-  {
-    let url = this.mapping.get_all_makes_api;
+  getAllVehicles() {
+    const url = this.mapping.get_all_vehicles_api;
 
     return this.http.get(url);
   }
 
-  getModelsForMake(idMake: number, idType: number)
-  {
-    let url = this.mapping.get_models_for_make
-              .replace('{idMake}', idMake.toString())
-              .replace('{idType}', idType.toString());
+  getAllMakes() {
+    const url = this.mapping.get_all_makes_api;
+
+    return this.http.get(url);
+  }
+
+  getModelsForMake(idMake: number, idType: number) {
+    const url = this.mapping.get_models_for_make
+      .replace('{idMake}', idMake.toString())
+      .replace('{idType}', idType.toString());
 
     return this.http.get(url);
   }

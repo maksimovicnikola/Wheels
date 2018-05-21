@@ -1,5 +1,6 @@
+import { HeaderComponent } from './../header/header.component';
 import { AuthService } from './../../services/auth/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginCredentials } from '../../../models/login-model';
 import { Router } from '@angular/router';
 
@@ -8,43 +9,47 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   constructor(
     private auth: AuthService,
     private router: Router
   ) { }
 
-  private isSignInError: boolean = false;
+  private isSignInError = false;
 
-  ngOnInit() {
-  }
+  // on this way we can call some method or get property value from HeaderComponent
+  @ViewChild(HeaderComponent)
+  private headerComponent: HeaderComponent;
 
   signin(form: LoginCredentials) {
-    //get token
+    // get token
     this.auth.getToken(form)
       .subscribe(response => {
-        //after getting of token, save it to local storage and login
+        // after getting of token, save it to local storage and login
         if (response) {
-          let tokenData = response.json();
+          const tokenData = response;
           this.auth.saveToken(tokenData);
           this.isSignInError = false;
           this.login(form);
         }
       },
         err => { this.isSignInError = true; }
-      )
+      );
   }
 
   login(form: LoginCredentials) {
     this.auth.login(form)
       .subscribe((user: any) => {
-        if (user._body != "null") {
-          user = user.json();
+        if (user._body !== 'null') {
           this.auth.saveUserToLocalStorage(user);
+
+          // after login, updating user value in header component
+          this.headerComponent.user = user;
 
           this.router.navigate(['/']);
         }
+        // tslint:disable-next-line:one-line
         else {
           this.isSignInError = true;
         }

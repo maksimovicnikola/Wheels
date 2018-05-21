@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-registration-complete',
   templateUrl: './registration-complete.component.html',
   styleUrls: ['./registration-complete.component.scss']
@@ -16,10 +17,10 @@ export class RegistrationCompleteComponent implements OnInit {
   public isActivated: number;
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
 
     this.auth.setUserActive(id).subscribe((response: number) => {
       this.isActivated = response;
-    })
+    });
   }
 }

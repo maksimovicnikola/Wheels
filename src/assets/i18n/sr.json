@@ -32,5 +32,6 @@
   "login_and_drive": "Uloguj se i vozi!",
   "email_or_password_invalid": "Email i/ili password nisu ispravni!",
   "submit": "Potvrdi",
-  "language": "Jezik"
+  "language": "Jezik",
+  "wrong_credentials": "Molimo unesite tačno korisničko ime i lozinku!"
 }
