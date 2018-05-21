@@ -38,7 +38,6 @@ export class AdvertisementDetailsComponent implements OnInit {
         const description = response.Description;
 
         this.setLightBox(imagesPaths, description);
-
       }
       );
 

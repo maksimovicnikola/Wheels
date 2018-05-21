@@ -1,3 +1,4 @@
+import { ApiService } from './../api/api.service';
 import { MappingService } from './../../mapping/mapping.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,7 +10,8 @@ export class AdvertisementsService {
 
   constructor(
     private http: HttpClient,
-    private mapping: MappingService
+    private mapping: MappingService,
+    private api: ApiService
   ) { }
 
   getAllAdvertisements() {
@@ -21,7 +23,7 @@ export class AdvertisementsService {
   getAdvertisementDetailsById(id: number) {
     const url = this.mapping.get_advertisement_by_id.replace('{id}', id.toString());
 
-    return this.http.get(url);
+    return this.api.getAuth(url);
   }
 
 }
